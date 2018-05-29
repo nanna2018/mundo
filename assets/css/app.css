@@ -1,0 +1,32 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/*hpptt//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css*/
+header{
+	background-color: #006064;
+}
+.navbar-light .navbar-nav .nav-link{
+	color:white;
+}
+.dropdown-item{
+	color:green;
+}
+a:not([href]):not([tabindex]){
+	color:white;
+	background-color: #006064;
+}
+body{
+	background-color: #006064;
+	text-align: center;
+}
+a{
+	background-color: #424242;
+	color: white; 
+}
+li{
+	font-size: bold;
+	color: white;
+}
+body>div>div>h1{
+font-size: 79px;
+color:#ffeb3b ;
+margin-top: 100px;
+}

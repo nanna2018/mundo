@@ -6,6 +6,10 @@ use App\Entity\Provincia;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Region;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 class ProvinciaType extends AbstractType
 {
@@ -13,7 +17,14 @@ class ProvinciaType extends AbstractType
     {
         $builder
             ->add('nombre')
-            ->add('region')
+            ->add('region',EntityType::class,array(
+              'class' => Region::class,
+              'choice_label' => function ($region) {
+                  return $region->getNombre();
+          }))
+            ->add('save', SubmitType::class, array(
+             'attr' => array('class' => 'btn btn-success'),
+            ))
         ;
     }
 

@@ -33,6 +33,13 @@ class Pais
      */
     private $regiones;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Presidente", mappedBy="pais", cascade={"persist", "remove"})
+     */
+    private $presidente;
+
+    
+
     public function __construct()
     {
         $this->regiones = new ArrayCollection();
@@ -97,4 +104,23 @@ class Pais
 
         return $this;
     }
+
+    public function getPresidente(): ?Presidente
+    {
+        return $this->presidente;
+    }
+
+    public function setPresidente(Presidente $presidente): self
+    {
+        $this->presidente = $presidente;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $presidente->getPais()) {
+            $presidente->setPais($this);
+        }
+
+        return $this;
+    }
+
+    
 }

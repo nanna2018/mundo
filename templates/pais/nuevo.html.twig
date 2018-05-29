@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+ 
+{% block body %}
+	<h1>Paises</h1>	
+			{{ form_start(formulario) }}
+			{{ form_widget(formulario) }}
+			{{ form_end(formulario) }}
+
+		
+		<a href="{{path('pais_lista')}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Lista de paises</a>
+{% block footer%}{% endblock %}
+{% endblock %}

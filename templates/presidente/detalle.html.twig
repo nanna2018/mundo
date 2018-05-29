@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block body %}
+
+<h1>Presidente</h1>
+<li>{{ presidente.nombre }}</li>
+
+
+<ul>
+    {% for pais in presidente.pais %}
+        <li>{{ pais.nombre}}-{{pais.continente}}</li>
+</ul>
+
+
+
+
+
+
+    {% endfor %}
+    {% block footer%}
+     
+<a href="{{path('presidente_nuevo')}}">Añadir presidente</a>
+     {% endblock %}
+{% endblock %}

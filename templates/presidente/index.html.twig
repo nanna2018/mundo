@@ -1,0 +1,15 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Presidentes</h1>
+	<ul>
+	    {% for presidente in presidentes %}
+	        <li>{{ presidente.nombre}}</li>
+	    {% endfor %}   
+	</ul>
+	<a href="{{path('mundo')}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Home</a>
+    {% block footer%}{% endblock %}
+
+
+{% endblock %}

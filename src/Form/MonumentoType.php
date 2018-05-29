@@ -2,30 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Pais;
-use App\Form\PresidenteType;
+use App\Entity\Monumento;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-
-
-class PaisType extends AbstractType
+class MonumentoType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('nombre')
-            ->add('continente')
-            ->add('presidente', PresidenteType::class)
-            
+            ->add('ano')
+            ->add('localidad')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Pais::class,
+            'data_class' => Monumento::class,
         ]);
     }
 }

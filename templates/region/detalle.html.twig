@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block body %}
+
+<h1>REGIONES</h1>
+<li>{{ region.nombre }}--{{region.idioma}}</li>
+
+
+<ul>
+    {% for pais in region.pais %}
+        <li>{{ pais.nombre}}--{{pais.continente}}</li>
+</ul>
+
+
+
+
+    {% endfor %}
+     
+<a href="{{path('region_nuevo')}}">Añadir region</a>
+
+
+{% endblock %}

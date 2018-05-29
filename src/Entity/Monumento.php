@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PresidenteRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\MonumentoRepository")
  */
-class Presidente
+class Monumento
 {
     /**
      * @ORM\Id()
@@ -17,22 +17,21 @@ class Presidente
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=50)
      */
     private $nombre;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string", length=6)
      */
-    private $fechanac;
+    private $ano;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Pais", inversedBy="presidente", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Localidad", inversedBy="monumentos")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $pais;
+    private $localidad;
 
-   
     public function getId()
     {
         return $this->id;
@@ -50,29 +49,27 @@ class Presidente
         return $this;
     }
 
-    public function getFechanac(): ?\DateTimeInterface
+    public function getAno(): ?string
     {
-        return $this->fechanac;
+        return $this->ano;
     }
 
-    public function setFechanac(\DateTimeInterface $fechanac): self
+    public function setAno(string $ano): self
     {
-        $this->fechanac = $fechanac;
+        $this->ano = $ano;
 
         return $this;
     }
 
-    public function getPais(): ?Pais
+    public function getLocalidad(): ?Localidad
     {
-        return $this->pais;
+        return $this->localidad;
     }
 
-    public function setPais(Pais $pais): self
+    public function setLocalidad(?Localidad $localidad): self
     {
-        $this->pais = $pais;
+        $this->localidad = $localidad;
 
         return $this;
     }
-
-    
 }

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2 id="localidad"></h2>
+	<h1>Nueva localidad</h1>
+
+				{{ form_start(formulario) }}
+				{{ form_widget(formulario) }}
+				{{ form_end(formulario) }}
+        <a href="{{path('mundo')}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Home</a>
+        <a href="{{path('localidad_lista')}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Lista</a>
+		
+{% endblock %}

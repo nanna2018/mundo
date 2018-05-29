@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block body %}
+
+<h1>Listado de provincias</h1>
+<li>{{ provincia.nombre }}</li>
+
+
+<ul>
+    {% for region in provincia.region %}
+        <li>{{ region.nombre}}-{{region.idioma}}</li>
+</ul>
+
+
+
+{#{{dump(localidad)}}#}
+
+
+    {% endfor %}
+     
+
+
+{% endblock %}
